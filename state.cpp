@@ -4,13 +4,17 @@
 
 using namespace std;
 
-state::state() {
+state::state(int puzzle[9], int blankIndex) {
      
+    for (int i = 0; i < 9; i++) {
+        this->puzzle[i] = puzzle[i];
+    }
+
+    this->blankIndex = blankIndex;
+
 }
 
-state::~state() {
-
-}
+state::~state() {}
 
 state* uniformCostSearch(state* puzzle) {
 
