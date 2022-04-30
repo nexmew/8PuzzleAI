@@ -62,8 +62,10 @@ int main()
     
 
     // Creates the state object called puzzle that will solve the problem!
-    state *puzzle = new state();
+    state *puzzle = new state(puzzle, blankIndex);
 
+
+    // Test print function
     printPuzzle(puzzle);
 
     return 0;
