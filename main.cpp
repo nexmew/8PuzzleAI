@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "puzzle.h"
+#include "state.h"
 
 using namespace std;
 
@@ -24,6 +25,13 @@ int main()
             blankIndex = i;
         }
     }
+
+    
+
+
+    // Creates the state object called puzzle that will solve the problem!
+    state* puzzle = new state();
+
 
     printPuzzle(puzzle);
 
