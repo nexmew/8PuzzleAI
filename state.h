@@ -7,6 +7,11 @@ class state {
 
         state();
         ~state();
+        state* moveBlankUp();
+        state* moveBlankDown();
+        state* moveBlankLeft();
+        state* moveBlankRight();
+
 
 
     private:
