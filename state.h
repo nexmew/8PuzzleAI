@@ -11,7 +11,6 @@ class state {
         state* moveBlankDown();
         state* moveBlankLeft();
         state* moveBlankRight();
-        void uniformCostSearch(state* puzzle);
         int misplacedTileHeuristic(int puzzle[9]);
         int euclideanDistanceHeuristic(int puzzle[9]);
 

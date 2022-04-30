@@ -3,6 +3,7 @@
 #include "puzzle.h"
 #include "state.h"
 #include "state.cpp"
+#include "uniformCostSearch.cpp"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int main()
     // Initializes the variable that holds the blank (0) index!
     int blankIndex;
     // Initializes a variable choice that determines which algorithm solves the puzzle!
-    int algChoice;
+    int algorithm;
 
     printStartingMenu();
 
@@ -35,28 +36,28 @@ int main()
     cout << "Enter 2 for A* Search with the Misplaced Tile Heuristic" << endl;
     cout << "Enter 3 for A* search with the Euclidean Distance Heuristic" << endl;
 
-    cin >> algChoice;
+    cin >> algorithm;
 
     // Checks choice and makes sure it is either 1, 2 or 3!
-    checkChoice(algChoice);
+    checkChoice(algorithm);
 
     // Creates the state object called puzzle that will solve the problem!
-    state* puzzle = new state(userPuzzle, blankIndex, algChoice);
+    state* puzzle = new state(userPuzzle, blankIndex, algorithm);
 
     // If choice is 1 we will use Uniform Cost Search!
-    if (algChoice == 1)
+    if (algorithm == 1)
     {
-        
+        uniformCostSearch(puzzle, algorithm);
     }
 
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
-    else if (algChoice == 2)
+    else if (algorithm == 2)
     {
         puzzle->heuristic = misplacedTileHeuristic(puzzle->puzzle);
     }
 
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
-    else if (algChoice == 3)
+    else if (algorithm == 3)
     {
         puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
     }
@@ -64,7 +65,7 @@ int main()
     // If choice is not 1, 2 or 3 check choice for new input!
     else
     {
-        checkChoice(algChoice);
+        checkChoice(algorithm);
     }
 
     // Test print function
