@@ -5,7 +5,7 @@ class state {
 
     public:
 
-        state(int puzzle[9], int blankIndex);
+        state(int puzzle[9], int blankIndex, int algChoice);
         ~state();
         state* moveBlankUp();
         state* moveBlankDown();
@@ -19,5 +19,6 @@ class state {
 
         int puzzle[9];
         int blankIndex;
+        int algChoice;
 
 };
