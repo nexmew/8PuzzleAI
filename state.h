@@ -11,7 +11,8 @@ class state {
         state* moveBlankDown();
         state* moveBlankLeft();
         state* moveBlankRight();
-        state* uniformCostSearch(state* puzzle);
+        void uniformCostSearch(state* puzzle);
+
 
 
 
