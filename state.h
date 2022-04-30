@@ -12,14 +12,13 @@ class state {
         state* moveBlankLeft();
         state* moveBlankRight();
         void uniformCostSearch(state* puzzle);
+        int misplacedTileHeuristic(int puzzle[9]);
+        int euclideanDistanceHeuristic(int puzzle[9]);
 
-
-
-
-    private:
 
         int puzzle[9];
         int blankIndex;
         int algChoice;
+        int heuristic;
 
 };

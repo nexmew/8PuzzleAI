@@ -20,7 +20,7 @@ state::~state() {}
 
 
 // Uniform cost search uses a priority queue to explore the states by the least cost
-void uniformCostSearch(state *puzzle)
+void state::uniformCostSearch(state *puzzle)
 {
 
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
@@ -36,6 +36,16 @@ void uniformCostSearch(state *puzzle)
         queue.pop();
     }
 }
+
+
+int misplacedTileHeuristic(int puzzle[9]) {
+
+}
+
+int euclideanDistanceHeuristic(int puzzle[9]) {
+    
+}
+
 
 state *state::moveBlankUp()
 {

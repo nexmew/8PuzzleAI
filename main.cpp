@@ -2,6 +2,7 @@
 #include <vector>
 #include "puzzle.h"
 #include "state.h"
+#include "state.cpp"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ int main()
 {
 
     // Initializes the array we read from the user to solve!
-    int puzzle[9];
+    int userPuzzle[9];
     // Initializes the variable that holds the blank (0) index!
     int blankIndex;
     // Initializes a variable choice that determines which algorithm solves the puzzle!
@@ -21,9 +22,9 @@ int main()
 
     for (int i = 0; i < 9; i++)
     {
-        cin >> puzzle[i];
+        cin >> userPuzzle[i];
 
-        if (puzzle[i] == 0)
+        if (userPuzzle[i] == 0)
         {
             blankIndex = i;
         }
@@ -39,19 +40,25 @@ int main()
     // Checks choice and makes sure it is either 1, 2 or 3!
     checkChoice(algChoice);
 
+    // Creates the state object called puzzle that will solve the problem!
+    state* puzzle = new state(userPuzzle, blankIndex, algChoice);
+
     // If choice is 1 we will use Uniform Cost Search!
     if (algChoice == 1)
     {
+        
     }
 
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
     else if (algChoice == 2)
     {
+        puzzle->heuristic = misplacedTileHeuristic(puzzle->puzzle);
     }
 
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
     else if (algChoice == 3)
     {
+        puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
     }
 
     // If choice is not 1, 2 or 3 check choice for new input!
@@ -60,11 +67,8 @@ int main()
         checkChoice(algChoice);
     }
 
-    // Creates the state object called puzzle that will solve the problem!
-    state* puzzle = new state(puzzle, blankIndex, algChoice);
-
     // Test print function
-    printPuzzle(puzzle);
+    printPuzzle(userPuzzle);
 
     return 0;
 }
