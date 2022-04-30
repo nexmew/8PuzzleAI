@@ -8,12 +8,10 @@ class state {
 
         state(int puzzle[9], int blankIndex, int algChoice);
         ~state();
-        state* moveBlankUp();
-        state* moveBlankDown();
-        state* moveBlankLeft();
-        state* moveBlankRight();
-        int misplacedTileHeuristic(int puzzle[9]);
-        int euclideanDistanceHeuristic(int puzzle[9]);
+        state* moveBlankUp(int algorithm);
+        state* moveBlankDown(int algorithm);
+        state* moveBlankLeft(int algorithm);
+        state* moveBlankRight(int algorithm);
         void printPuzzle();
         void uniformCostSearch(state* puzzle[9]);
 

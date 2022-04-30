@@ -26,11 +26,12 @@ int misplacedTileHeuristic(int puzzle[9]) {
 
 int euclideanDistanceHeuristic(int puzzle[9]) {
 
-    return 1;
+
+    return 5;
 }
 
 
-state *state::moveBlankUp()
+state *state::moveBlankUp(int algorithm)
 {
 
     state *nextState;
@@ -39,7 +40,7 @@ state *state::moveBlankUp()
     return nextState;
 }
 
-state *state::moveBlankDown()
+state *state::moveBlankDown(int algorithm)
 {
 
     state *nextState;
@@ -48,7 +49,7 @@ state *state::moveBlankDown()
     return nextState;
 }
 
-state *state::moveBlankLeft()
+state *state::moveBlankLeft(int algorithm)
 {
 
     state *nextState;
@@ -57,7 +58,7 @@ state *state::moveBlankLeft()
     return nextState;
 }
 
-state *state::moveBlankRight()
+state *state::moveBlankRight(int algorithm)
 {
 
     state *nextState;
@@ -84,11 +85,18 @@ void state::printPuzzle()
 // Uniform cost search uses a priority queue to explore the states by the least cost
 void uniformCostSearch(state* puzzle) {
 
+    // Goal array to check against
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
+    // Queue to hold each state of the puzzle
     priority_queue<state*> queue;
+    // Exploring node is the current node we are exploring!
     state* exploringNode;
+    // Once solved is true, we will output the array!
     bool solved = false;
-    int state = 1;
+    // We initialize states viewed to 1 to begin
+    int statesViewed = 1;
+    // Uniform cost search is option 1 and we need this variable to move the puzzle!
+    int algorithm = 1;
 
     queue.push(puzzle);
 
@@ -112,9 +120,57 @@ void uniformCostSearch(state* puzzle) {
 
         }
 
-        cout << "State: " << state << endl;
-        state++;
+        cout << "State: " << statesViewed << endl;
+        statesViewed++;
         exploringNode->printPuzzle();
+
+
+        if (exploringNode->blankIndex == 0) {
+            queue.push(exploringNode->moveBlankDown(algorithm));
+            queue.push(exploringNode->moveBlankRight(algorithm));
+        }
+        else if (exploringNode->blankIndex == 1) {
+            queue.push(exploringNode->moveBlankDown(algorithm));
+            queue.push(exploringNode->moveBlankLeft(algorithm));
+            queue.push(exploringNode->moveBlankRight(algorithm));
+        }
+        else if (exploringNode->blankIndex == 2) {
+            queue.push(exploringNode->moveBlankDown(algorithm));
+            queue.push(exploringNode->moveBlankLeft(algorithm));
+        }
+        else if (exploringNode->blankIndex == 3) {
+            queue.push(exploringNode->moveBlankUp(algorithm));
+            queue.push(exploringNode->moveBlankDown(algorithm));
+            queue.push(exploringNode->moveBlankRight(algorithm));
+        }
+        else if (exploringNode->blankIndex == 4) {
+            queue.push(exploringNode->moveBlankUp(algorithm));
+            queue.push(exploringNode->moveBlankDown(algorithm));
+            queue.push(exploringNode->moveBlankLeft(algorithm));
+            queue.push(exploringNode->moveBlankRight(algorithm));
+        }
+        else if (exploringNode->blankIndex == 5) {
+            queue.push(exploringNode->moveBlankUp(algorithm));
+            queue.push(exploringNode->moveBlankDown(algorithm));
+            queue.push(exploringNode->moveBlankLeft(algorithm));
+        }
+        else if (exploringNode->blankIndex == 6) {
+            queue.push(exploringNode->moveBlankUp(algorithm));
+            queue.push(exploringNode->moveBlankRight(algorithm));
+        }
+        else if (exploringNode->blankIndex == 7) {
+            queue.push(exploringNode->moveBlankUp(algorithm));
+            queue.push(exploringNode->moveBlankLeft(algorithm));
+            queue.push(exploringNode->moveBlankRight(algorithm));
+        }
+        else if (exploringNode->blankIndex == 8) {
+            queue.push(exploringNode->moveBlankUp(algorithm));
+            queue.push(exploringNode->moveBlankLeft(algorithm));
+        }
+        else {
+            cout << "Blank index error!" << endl;
+        }
+
 
     }
 
