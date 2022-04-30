@@ -40,30 +40,28 @@ int main()
     checkChoice(algChoice);
 
     // If choice is 1 we will use Uniform Cost Search!
-    if (algChoice == 1) {
-
+    if (algChoice == 1)
+    {
     }
-    
-    // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
-    else if (algChoice == 2) {
 
+    // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
+    else if (algChoice == 2)
+    {
     }
 
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
-    else if (algChoice == 3) {
-
+    else if (algChoice == 3)
+    {
     }
 
     // If choice is not 1, 2 or 3 check choice for new input!
-    else {
+    else
+    {
         checkChoice(algChoice);
     }
 
-    
-
     // Creates the state object called puzzle that will solve the problem!
-    state *puzzle = new state(puzzle, blankIndex, algChoice);
-
+    state* puzzle = new state(puzzle, blankIndex, algChoice);
 
     // Test print function
     printPuzzle(puzzle);
