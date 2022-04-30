@@ -28,3 +28,14 @@ void printPuzzle(int input[9])
     cout << "|                |" << endl;
     cout << "------------------" << endl;
 }
+
+void checkChoice(int choice) {
+    if (choice != 1 || choice != 2 || choice != 3)
+    {
+        cout << "Invalid choice entered!" << endl;
+        cout << "Which algorithm would you like to solve the puzzle with?" << endl;
+        cout << "Enter 1 for Uniform Cost Search" << endl;
+        cout << "Enter 2 for A* Search with the Misplaced Tile Heuristic" << endl;
+        cout << "Enter 3 for A* search with the Euclidean Distance Heuristic" << endl;
+    }
+}
