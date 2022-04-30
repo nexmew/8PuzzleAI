@@ -3,7 +3,7 @@
 #include "puzzle.h"
 #include "state.h"
 #include "state.cpp"
-#include "uniformCostSearch.cpp"
+#include "uniformCostSearch.h"
 
 using namespace std;
 
