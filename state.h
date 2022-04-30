@@ -17,6 +17,6 @@ class state {
     private:
 
         int puzzle[9];
-        int blackIndex;
+        int blankIndex;
 
 };
