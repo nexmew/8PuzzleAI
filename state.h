@@ -13,6 +13,7 @@ class state {
         state* moveBlankRight();
         int misplacedTileHeuristic(int puzzle[9]);
         int euclideanDistanceHeuristic(int puzzle[9]);
+        void printPuzzle();
 
 
         int puzzle[9];

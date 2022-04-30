@@ -63,3 +63,17 @@ state *state::moveBlankRight()
 
     return nextState;
 }
+
+void state::printPuzzle()
+{
+
+    cout << "------------------" << endl;
+    cout << "|                |" << endl;
+    cout << "| " << puzzle[0] << "     " << puzzle[1] << "     " << puzzle[2] << "  |" << endl;
+    cout << "|                |" << endl;
+    cout << "| " << puzzle[3] << "     " << puzzle[4] << "     " << puzzle[5] << "  |" << endl;
+    cout << "|                |" << endl;
+    cout << "| " << puzzle[6] << "     " << puzzle[7] << "     " << puzzle[8] << "  |" << endl;
+    cout << "|                |" << endl;
+    cout << "------------------" << endl;
+}
