@@ -7,22 +7,25 @@ using namespace std;
 int main()
 {
 
-    // Initializes the vector we read from the user to solve!
-    vector<vector<int>> vec(3, vector<int>(3));
+    // Initializes the array we read from the user to solve!
+    int puzzle[9];
+    // Initializes the variable that holds the blank (0) index!
+    int blankIndex;
 
     printStartingMenu();
     
     cout << "Enter 8 puzzle: " << endl;
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 9; i++)
     {
-        for (int j = 0; j < 3; j++)
-        {
-            cin >> vec[i][j];
+        cin >> puzzle[i];
+
+        if (puzzle[i] == 0) {
+            blankIndex = i;
         }
     }
 
-    printPuzzle(vec);
+    printPuzzle(puzzle);
 
     return 0;
 }
