@@ -1,3 +1,5 @@
+#ifndef PUZZLE_H
+#define PUZZLE_H
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -39,3 +41,6 @@ void checkChoice(int choice) {
         cout << "Enter 3 for A* search with the Euclidean Distance Heuristic" << endl;
     }
 }
+
+
+#endif

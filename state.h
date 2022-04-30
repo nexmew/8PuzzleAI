@@ -1,4 +1,5 @@
-#include <iostream>
+#ifndef STATE_H
+#define STATE_H
 #include <queue>
 
 class state {
@@ -14,6 +15,7 @@ class state {
         int misplacedTileHeuristic(int puzzle[9]);
         int euclideanDistanceHeuristic(int puzzle[9]);
         void printPuzzle();
+        void uniformCostSearch(state* puzzle[9]);
 
 
         int puzzle[9];
@@ -22,3 +24,5 @@ class state {
         int heuristic;
 
 };
+
+#endif

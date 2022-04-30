@@ -3,7 +3,6 @@
 #include "puzzle.h"
 #include "state.h"
 #include "state.cpp"
-#include "uniformCostSearch.h"
 
 using namespace std;
 
@@ -47,7 +46,7 @@ int main()
     // If choice is 1 we will use Uniform Cost Search!
     if (algorithm == 1)
     {
-        uniformCostSearch(puzzle);
+        //uniformCostSearch(puzzle);
     }
 
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
@@ -69,7 +68,7 @@ int main()
     }
 
     // Test print function
-    printPuzzle(userPuzzle);
+    //printPuzzle(userPuzzle);
 
     return 0;
 }
