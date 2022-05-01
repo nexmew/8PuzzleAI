@@ -262,7 +262,7 @@ int euclideanDistanceHeuristic(int puzzle[9])
 */
 void state::printPuzzle2()
 {
-    /*
+    
         cout << "------------------" << endl;
         cout << "|                |" << endl;
         cout << "| " << puzzle[0] << "     " << puzzle[1] << "     " << puzzle[2] << "  |" << endl;
@@ -274,7 +274,7 @@ void state::printPuzzle2()
         cout << "------------------" << endl;
         cout << "                  " << endl;
         cout << "Estimated Cost: " << estimatedCost << endl;
-        cout << "Depth: " << depth << endl; */
+        cout << "Depth: " << depth << endl; 
 }
 
 // Uniform cost search uses a priority queue to explore the states by the least cost
