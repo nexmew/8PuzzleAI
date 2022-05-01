@@ -17,19 +17,6 @@ void printStartingMenu()
 }
 
 
-void printPuzzle(int input[9])
-{
-
-    cout << "------------------" << endl;
-    cout << "|                |" << endl;
-    cout << "| " << input[0] << "     " << input[1] << "     " << input[2] << "  |" << endl;
-    cout << "|                |" << endl;
-    cout << "| " << input[3] << "     " << input[4] << "     " << input[5] << "  |" << endl;
-    cout << "|                |" << endl;
-    cout << "| " << input[6] << "     " << input[7] << "     " << input[8] << "  |" << endl;
-    cout << "|                |" << endl;
-    cout << "------------------" << endl;
-}
 /*
 void checkChoice(int choice) {
     if (choice != 1 || choice != 2 || choice != 3)

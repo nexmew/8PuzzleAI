@@ -10,11 +10,12 @@ int main()
 {
 
     // Initializes the array we read from the user to solve!
-    int userPuzzle[9];
+    int userPuzzle[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     // Initializes the variable that holds the blank (0) index!
-    int blankIndex;
+    int blankIndex = 0;
+    ;
     // Initializes a variable choice that determines which algorithm solves the puzzle!
-    int algorithm;
+    int algorithm = 0;
 
     printStartingMenu();
 
@@ -23,10 +24,12 @@ int main()
     for (int i = 0; i < 9; i++)
     {
         cin >> userPuzzle[i];
-
-        if (userPuzzle[i] == 0)
+    }
+    for (int j = 0; j < 9; j++)
+    {
+        if (userPuzzle[j] == 0)
         {
-            blankIndex = i;
+            blankIndex = j;
         }
     }
 
@@ -46,30 +49,20 @@ int main()
     // If choice is 1 we will use Uniform Cost Search!
     if (algorithm == 1)
     {
-        uniformCostSearch(puzzle);
+        uniformCostSearch(puzzle, algorithm);
     }
 
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
     else if (algorithm == 2)
     {
-        puzzle->heuristic = misplacedTileHeuristic(puzzle->puzzle);
+        // puzzle->heuristic = misplacedTileHeuristic(puzzle->puzzle);
     }
 
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
     else if (algorithm == 3)
     {
-        puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
+        // puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
     }
-
-    // If choice is not 1, 2 or 3 check choice for new input!
-    /*
-    else
-    {
-        checkChoice(algorithm);
-    } */
-
-    // Test print function
-    // printPuzzle(userPuzzle);
 
     return 0;
 }
