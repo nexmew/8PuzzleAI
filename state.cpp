@@ -306,7 +306,7 @@ void uniformCostSearch(state *puzzle, int algorithm)
         // Checking for goal state!
         for (int i = 0; i < 9; i++)
         {
-
+            // if any index of current node isnt the the value of goal, break
             if (exploringNode->puzzle[i] != goal[i])
             {
                 break;
