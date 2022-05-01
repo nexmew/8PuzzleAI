@@ -15,7 +15,7 @@ public:
     state *moveBlankLeft(int algorithm);
     state *moveBlankRight(int algorithm);
 
-    void printPuzzle();
+    void printPuzzle2();
 
     int puzzle[9];
     int blankIndex;

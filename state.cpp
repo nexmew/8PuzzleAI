@@ -260,21 +260,21 @@ int euclideanDistanceHeuristic(int puzzle[9])
     return 5;
 }
 */
-void state::printPuzzle()
+void state::printPuzzle2()
 {
-
-    cout << "------------------" << endl;
-    cout << "|                |" << endl;
-    cout << "| " << puzzle[0] << "     " << puzzle[1] << "     " << puzzle[2] << "  |" << endl;
-    cout << "|                |" << endl;
-    cout << "| " << puzzle[3] << "     " << puzzle[4] << "     " << puzzle[5] << "  |" << endl;
-    cout << "|                |" << endl;
-    cout << "| " << puzzle[6] << "     " << puzzle[7] << "     " << puzzle[8] << "  |" << endl;
-    cout << "|                |" << endl;
-    cout << "------------------" << endl;
-    cout << "                  " << endl;
-    cout << "Estimated Cost: " << estimatedCost << endl;
-    cout << "Depth: " << depth << endl;
+    /*
+        cout << "------------------" << endl;
+        cout << "|                |" << endl;
+        cout << "| " << puzzle[0] << "     " << puzzle[1] << "     " << puzzle[2] << "  |" << endl;
+        cout << "|                |" << endl;
+        cout << "| " << puzzle[3] << "     " << puzzle[4] << "     " << puzzle[5] << "  |" << endl;
+        cout << "|                |" << endl;
+        cout << "| " << puzzle[6] << "     " << puzzle[7] << "     " << puzzle[8] << "  |" << endl;
+        cout << "|                |" << endl;
+        cout << "------------------" << endl;
+        cout << "                  " << endl;
+        cout << "Estimated Cost: " << estimatedCost << endl;
+        cout << "Depth: " << depth << endl; */
 }
 
 // Uniform cost search uses a priority queue to explore the states by the least cost
@@ -301,7 +301,7 @@ void uniformCostSearch(state *puzzle, int algorithm)
         // Exploring the least costly node and removing it from the priority queue!
         exploringNode = queue.top();
         queue.pop();
-        cout << "queue entered" << endl;
+        //cout << "queue entered" << endl;
 
         // Checking for goal state!
         for (int i = 0; i < 9; i++)
@@ -316,13 +316,13 @@ void uniformCostSearch(state *puzzle, int algorithm)
             {
                 cout << "Puzzle solved!" << endl;
                 cout << "States viewed: " << statesViewed << endl;
-                exploringNode->printPuzzle();
+                exploringNode->printPuzzle2();
                 return;
             }
         }
 
         statesViewed += 1;
-        exploringNode->printPuzzle();
+        exploringNode->printPuzzle2();
 
         /*
                 0 1 2
