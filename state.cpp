@@ -88,6 +88,34 @@ state *state::moveBlankDown(int algorithm)
         newPuzzle[i] = this->puzzle[i];
     }
 
+    if (this->blankIndex = 6 || this->blankIndex = 7 || this->blankIndex = 8) {
+        break;
+    }
+    else if (this->blankIndex = 0) {
+        swap(newPuzzle[0], newPuzzle[3]);
+        blank = 3;
+    }
+    else if (this->blankIndex = 1) {
+        swap(newPuzzle[1], newPuzzle[4]);
+        blank = 4;
+    }
+    else if (this->blankIndex = 2) {
+        swap(newPuzzle[2], newPuzzle[5]);
+        blank = 6;
+    }
+    else if (this->blankIndex = 3) {
+        swap(newPuzzle[3], newPuzzle[6]);
+        blank = 6;
+    }
+    else if (this->blankIndex = 4) {
+        swap(newPuzzle[4], newPuzzle[7]);
+        blank = 7;
+    }
+    else if (this->blankIndex = 5) {
+        swap(newPuzzle[5], newPuzzle[8]);
+        blank = 8;
+    }
+
     return nextState;
 }
 
@@ -103,6 +131,34 @@ state *state::moveBlankLeft(int algorithm)
         newPuzzle[i] = this->puzzle[i];
     }
 
+    if (this->blankIndex = 0 || this->blankIndex = 3 || this->blankIndex = 6) {
+        break;
+    }
+    else if (this->blankIndex = 1) {
+        swap(newPuzzle[1], newPuzzle[0]);
+        blank = 0;
+    }
+    else if (this->blankIndex = 2) {
+        swap(newPuzzle[2], newPuzzle[1]);
+        blank = 1;
+    }
+    else if (this->blankIndex = 4) {
+        swap(newPuzzle[4], newPuzzle[3]);
+        blank = 3;
+    }
+    else if (this->blankIndex = 5) {
+        swap(newPuzzle[5], newPuzzle[4]);
+        blank = 4;
+    }
+    else if (this->blankIndex = 7) {
+        swap(newPuzzle[7], newPuzzle[6]);
+        blank = 6;
+    }
+    else if (this->blankIndex = 8) {
+        swap(newPuzzle[8], newPuzzle[7]);
+        blank = 7;
+    }
+
     return nextState;
 }
 
@@ -116,6 +172,34 @@ state *state::moveBlankRight(int algorithm)
     // Load puzzle
     for (int i = 0; i < 9; i++) {
         newPuzzle[i] = this->puzzle[i];
+    }
+
+    if (this->blankIndex = 2 || this->blankIndex = 5 || this->blankIndex = 8) {
+        break;
+    }
+    else if (this->blankIndex = 0) {
+        swap(newPuzzle[0], newPuzzle[1]);
+        blank = 1;
+    }
+    else if (this->blankIndex = 1) {
+        swap(newPuzzle[1], newPuzzle[2]);
+        blank = 2;
+    }
+    else if (this->blankIndex = 3) {
+        swap(newPuzzle[3], newPuzzle[4]);
+        blank = 4;
+    }
+    else if (this->blankIndex = 4) {
+        swap(newPuzzle[4], newPuzzle[5]);
+        blank = 5;
+    }
+    else if (this->blankIndex = 6) {
+        swap(newPuzzle[6], newPuzzle[7]);
+        blank = 7;
+    }
+    else if (this->blankIndex = 7) {
+        swap(newPuzzle[7], newPuzzle[8]);
+        blank = 8;
     }
 
     return nextState;
