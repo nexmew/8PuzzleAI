@@ -34,9 +34,45 @@ int euclideanDistanceHeuristic(int puzzle[9]) {
 state *state::moveBlankUp(int algorithm)
 {
 
-    state *nextState;
     int newPuzzle[9];
+    int temp;
+    int blank;
 
+    // Load puzzle
+    for (int i = 0; i < 9; i++) {
+        newPuzzle[i] = this->puzzle[i];
+    }
+
+    if (this->blankIndex = 0 || this->blankIndex = 1 || this->blankIndex = 2) {
+        break;
+    }
+    else if (this->blankIndex = 3) {
+        swap(newPuzzle[3], newPuzzle[0]);
+        blank = 0;
+    }
+    else if (this->blankIndex = 4) {
+        swap(newPuzzle[4], newPuzzle[1]);
+        blank = 1;
+    }
+    else if (this->blankIndex = 5) {
+        swap(newPuzzle[5], newPuzzle[2]);
+        blank = 2;
+    }
+    else if (this->blankIndex = 6) {
+        swap(newPuzzle[6], newPuzzle[3]);
+        blank = 3;
+    }
+    else if (this->blankIndex = 7) {
+        swap(newPuzzle[7], newPuzzle[4]);
+        blank = 4;
+    }
+    else if (this->blankIndex = 8) {
+        swap(newPuzzle[8], newPuzzle[5]);
+        blank = 5;
+    }
+    
+    state* nextState = new state(newPuzzle, blank, 1)
+    
     return nextState;
 }
 
@@ -45,6 +81,12 @@ state *state::moveBlankDown(int algorithm)
 
     state *nextState;
     int newPuzzle[9];
+    int temp;
+
+    // Load puzzle
+    for (int i = 0; i < 9; i++) {
+        newPuzzle[i] = this->puzzle[i];
+    }
 
     return nextState;
 }
@@ -54,6 +96,12 @@ state *state::moveBlankLeft(int algorithm)
 
     state *nextState;
     int newPuzzle[9];
+    int temp;
+
+    // Load puzzle
+    for (int i = 0; i < 9; i++) {
+        newPuzzle[i] = this->puzzle[i];
+    }
 
     return nextState;
 }
@@ -63,6 +111,12 @@ state *state::moveBlankRight(int algorithm)
 
     state *nextState;
     int newPuzzle[9];
+    int temp;
+
+    // Load puzzle
+    for (int i = 0; i < 9; i++) {
+        newPuzzle[i] = this->puzzle[i];
+    }
 
     return nextState;
 }
@@ -124,7 +178,11 @@ void uniformCostSearch(state* puzzle) {
         statesViewed++;
         exploringNode->printPuzzle();
 
-
+    /*
+            0 1 2
+            3 4 5
+            6 7 8
+                        */
         if (exploringNode->blankIndex == 0) {
             queue.push(exploringNode->moveBlankDown(algorithm));
             queue.push(exploringNode->moveBlankRight(algorithm));
