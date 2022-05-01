@@ -13,9 +13,10 @@ int main()
     int userPuzzle[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     // Initializes the variable that holds the blank (0) index!
     int blankIndex = 0;
-    ;
     // Initializes a variable choice that determines which algorithm solves the puzzle!
     int algorithm = 0;
+
+    int heuristic = 0;
 
     printStartingMenu();
 
@@ -44,7 +45,7 @@ int main()
     // checkChoice(algorithm);
 
     // Creates the state object called puzzle that will solve the problem!
-    state *puzzle = new state(userPuzzle, blankIndex, algorithm, 0, 0, 0);
+    state *puzzle = new state(userPuzzle, blankIndex, algorithm, 0, heuristic, 0);
 
     // If choice is 1 we will use Uniform Cost Search!
     if (algorithm == 1)
@@ -55,7 +56,7 @@ int main()
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
     else if (algorithm == 2)
     {
-        // puzzle->heuristic = misplacedTileHeuristic(puzzle->puzzle);
+        uniformCostSearch(puzzle, algorithm);
     }
 
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!

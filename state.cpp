@@ -1,4 +1,5 @@
 #include "state.h"
+#include "puzzle.h"
 #include <queue>
 #include <iostream>
 
@@ -59,7 +60,7 @@ state *state::moveBlankUp(int algorithm)
     }
     else if (algorithm == 2)
     {
-        // updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
     }
     else if (algorithm == 3)
     {
@@ -113,7 +114,7 @@ state *state::moveBlankDown(int algorithm)
     }
     else if (algorithm == 2)
     {
-        // updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
     }
     else if (algorithm == 3)
     {
@@ -172,7 +173,7 @@ state *state::moveBlankLeft(int algorithm)
     }
     else if (algorithm == 2)
     {
-        // updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
     }
     else if (algorithm == 3)
     {
@@ -231,7 +232,7 @@ state *state::moveBlankRight(int algorithm)
     }
     else if (algorithm == 2)
     {
-        // updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
     }
     else if (algorithm == 3)
     {

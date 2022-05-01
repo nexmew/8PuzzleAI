@@ -16,6 +16,20 @@ void printStartingMenu()
     cout << "-------------------------------------------------" << endl;
 }
 
+int misplacedTileHeuristic(int puzzle[9])
+{
+    int updatedHeuristic = 0;
+
+    // Counts how many misplaced tiles we have
+    for (int i = 0; i < 9; i++) {
+        if ((puzzle[i] != 0) && (puzzle[i] != (i + 1) % 9)) {
+            updatedHeuristic++;
+        }
+    }
+    cout << "Misplaced tiles: " << updatedHeuristic << endl;
+    return updatedHeuristic;
+}
+
 
 /*
 void checkChoice(int choice) {
