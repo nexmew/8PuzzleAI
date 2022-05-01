@@ -13,7 +13,6 @@ class state {
         state* moveBlankLeft(int algorithm);
         state* moveBlankRight(int algorithm);
         void printPuzzle();
-        void uniformCostSearch(state* puzzle[9]);
 
 
         int puzzle[9];

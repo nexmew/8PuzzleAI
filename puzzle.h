@@ -30,7 +30,7 @@ void printPuzzle(int input[9])
     cout << "|                |" << endl;
     cout << "------------------" << endl;
 }
-
+/*
 void checkChoice(int choice) {
     if (choice != 1 || choice != 2 || choice != 3)
     {
@@ -41,7 +41,7 @@ void checkChoice(int choice) {
         cout << "Enter 3 for A* search with the Euclidean Distance Heuristic" << endl;
     }
 }
-
+*/
 
 
 

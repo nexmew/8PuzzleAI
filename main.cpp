@@ -38,15 +38,15 @@ int main()
     cin >> algorithm;
 
     // Checks choice and makes sure it is either 1, 2 or 3!
-    checkChoice(algorithm);
+    // checkChoice(algorithm);
 
     // Creates the state object called puzzle that will solve the problem!
-    state* puzzle = new state(userPuzzle, blankIndex, algorithm);
+    state *puzzle = new state(userPuzzle, blankIndex, algorithm);
 
     // If choice is 1 we will use Uniform Cost Search!
     if (algorithm == 1)
     {
-        // uniformCostSearch(puzzle);
+        uniformCostSearch(puzzle);
     }
 
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
@@ -62,10 +62,11 @@ int main()
     }
 
     // If choice is not 1, 2 or 3 check choice for new input!
+    /*
     else
     {
         checkChoice(algorithm);
-    }
+    } */
 
     // Test print function
     // printPuzzle(userPuzzle);
