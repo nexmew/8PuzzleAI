@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 state::state(int puzzle[9], int blankIndex, int algorithm, int depth, int heuristic, int estimatedCost)
 {
 
@@ -273,8 +274,8 @@ void state::printPuzzle2()
         cout << "|                |" << endl;
         cout << "------------------" << endl;
         cout << "                  " << endl;
-        cout << "Estimated Cost: " << estimatedCost << endl;
-        cout << "Depth: " << depth << endl; 
+        //cout << "Estimated Cost: " << estimatedCost << endl;
+        //cout << "Depth: " << depth << endl; 
 }
 
 // Uniform cost search uses a priority queue to explore the states by the least cost
@@ -284,7 +285,10 @@ void uniformCostSearch(state *puzzle, int algorithm)
     // Goal array to check against
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
     // Queue to hold each state of the puzzle
-    priority_queue<state *, vector<state *>, greater<int>> queue;
+
+    //auto comparison = [](state* input1, state* input2) { return (input1->estimatedCost >= input2->estimatedCost);};
+    //priority_queue<state *, vector<state *>, decltype(comparison)> queue(comparison);
+    priority_queue<state *> queue;
     // Exploring node is the current node we are exploring!
     state *exploringNode;
     // Once solved is true, we will output the array!
@@ -315,8 +319,10 @@ void uniformCostSearch(state *puzzle, int algorithm)
             else if (exploringNode->puzzle[i] == goal[i] && (i == 8))
             {
                 cout << "Puzzle solved!" << endl;
-                cout << "States viewed: " << statesViewed << endl;
                 exploringNode->printPuzzle2();
+                cout << "States viewed: " << statesViewed << endl;
+                cout << "Estimated cost: " << exploringNode->estimatedCost << endl;
+                cout << "Depth: " << exploringNode->depth << endl;
                 return;
             }
         }
