@@ -43,7 +43,7 @@ state *state::moveBlankUp(int algorithm)
         newPuzzle[i] = this->puzzle[i];
     }
 
-    if (this->blankIndex = 0 || this->blankIndex = 1 || this->blankIndex = 2)
+    if (this->blankIndex = 0 || this->blankIndex = 1 || (this->blankIndex = 2))
     {
         cout << "move not possible!" << endl;
     }
@@ -96,7 +96,7 @@ state *state::moveBlankDown(int algorithm)
         newPuzzle[i] = this->puzzle[i];
     }
 
-    if (this->blankIndex = 6 || this->blankIndex = 7 || this->blankIndex = 8)
+    if (this->blankIndex = 6 || this->blankIndex = 7 || (this->blankIndex = 8))
     {
         cout << "move not possible!" << endl;
     }
@@ -149,7 +149,7 @@ state *state::moveBlankLeft(int algorithm)
         newPuzzle[i] = this->puzzle[i];
     }
 
-    if (this->blankIndex = 0 || this->blankIndex = 3 || this->blankIndex = 6)
+    if (this->blankIndex = 0 || this->blankIndex = 3 || (this->blankIndex = 6))
     {
         cout << "move not possible!" << endl;
     }
@@ -202,7 +202,7 @@ state *state::moveBlankRight(int algorithm)
         newPuzzle[i] = this->puzzle[i];
     }
 
-    if (this->blankIndex = 2 || this->blankIndex = 5 || this->blankIndex = 8)
+    if (this->blankIndex = 2 || this->blankIndex = 5 || (this->blankIndex = 8))
     {
         cout << "move not possible!" << endl;
     }
