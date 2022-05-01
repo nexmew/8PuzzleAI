@@ -96,6 +96,8 @@ state *state::moveBlankUp(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
+    updatedDepth = this->depth++;
+    updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
@@ -165,6 +167,8 @@ state *state::moveBlankDown(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
+    updatedDepth = this->depth++;
+    updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
@@ -234,6 +238,8 @@ state *state::moveBlankLeft(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
+    updatedDepth = this->depth++;
+    updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
@@ -304,7 +310,8 @@ state *state::moveBlankRight(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
-
+    updatedDepth = this->depth++;
+    updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
