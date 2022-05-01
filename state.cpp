@@ -116,7 +116,7 @@ state *state::moveBlankDown(int algorithm)
     // Load puzzle
     for (int i = 0; i < 9; i++)
     {
-        newPuzzle[i] = this->puzzle[i];
+        updatedPuzzle[i] = this->puzzle[i];
     }
 
     if (this->blankIndex == 6 || this->blankIndex == 7 || this->blankIndex == 8)
@@ -185,7 +185,7 @@ state *state::moveBlankLeft(int algorithm)
     // Load puzzle
     for (int i = 0; i < 9; i++)
     {
-        newPuzzle[i] = this->puzzle[i];
+        updatedPuzzle[i] = this->puzzle[i];
     }
 
     if (this->blankIndex == 0 || this->blankIndex == 3 || this->blankIndex == 6)
