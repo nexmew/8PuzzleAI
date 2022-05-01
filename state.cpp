@@ -4,7 +4,7 @@
 
 using namespace std;
 
-state::state(int puzzle[9], int blankIndex, int algChoice)
+state::state(int puzzle[9], int blankIndex, int algChoice, int depth, int heuristic, int estimatedCost)
 {
 
     for (int i = 0; i < 9; i++)
@@ -14,6 +14,9 @@ state::state(int puzzle[9], int blankIndex, int algChoice)
 
     this->blankIndex = blankIndex;
     this->algChoice = algChoice;
+    this->depth = depth;
+    this->heuristic = heuristic;
+    this->estimatedCost = estimatedCost;
 }
 
 state::~state() {}
@@ -33,14 +36,18 @@ int euclideanDistanceHeuristic(int puzzle[9])
 state *state::moveBlankUp(int algorithm)
 {
 
-    int newPuzzle[9];
+    int updatedPuzzle[9];
+    int updatedBlank;
+    int updatedDepth;
+    int updatedHeuristic;
+    int updatedEstimatedCost;
+    int updatedAlgorithm;
     int temp;
-    int blank;
 
     // Load puzzle
     for (int i = 0; i < 9; i++)
     {
-        newPuzzle[i] = this->puzzle[i];
+        updatedPuzzle[i] = this->puzzle[i];
     }
 
     if (this->blankIndex == 0 || this->blankIndex == 1 || this->blankIndex == 2)
@@ -49,36 +56,48 @@ state *state::moveBlankUp(int algorithm)
     }
     else if (this->blankIndex == 3)
     {
-        swap(newPuzzle[3], newPuzzle[0]);
-        blank = 0;
+        swap(updatedPuzzle[3], updatedPuzzle[0]);
+        updatedBlank = 0;
     }
     else if (this->blankIndex == 4)
     {
-        swap(newPuzzle[4], newPuzzle[1]);
-        blank = 1;
+        swap(updatedPuzzle[4], updatedPuzzle[1]);
+        updatedBlank = 1;
     }
     else if (this->blankIndex == 5)
     {
-        swap(newPuzzle[5], newPuzzle[2]);
-        blank = 2;
+        swap(updatedPuzzle[5], updatedPuzzle[2]);
+        updatedBlank = 2;
     }
     else if (this->blankIndex == 6)
     {
-        swap(newPuzzle[6], newPuzzle[3]);
-        blank = 3;
+        swap(updatedPuzzle[6], updatedPuzzle[3]);
+        updatedBlank = 3;
     }
     else if (this->blankIndex == 7)
     {
-        swap(newPuzzle[7], newPuzzle[4]);
-        blank = 4;
+        swap(updatedPuzzle[7], updatedPuzzle[4]);
+        updatedBlank = 4;
     }
     else if (this->blankIndex == 8)
     {
-        swap(newPuzzle[8], newPuzzle[5]);
-        blank = 5;
+        swap(updatedPuzzle[8], updatedPuzzle[5]);
+        updatedBlank = 5;
     }
 
-    state *nextState = new state(newPuzzle, blank, 1);
+    if (algorithm == 1) {
+        updatedHeuristic = 0;
+    }
+    else if (algorithm == 2) {
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+    }
+    else if (algorithm == 3) {
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+    }
+
+    updatedAlgorithm = algorithm;
+
+    state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
@@ -86,9 +105,13 @@ state *state::moveBlankUp(int algorithm)
 state *state::moveBlankDown(int algorithm)
 {
 
-    int newPuzzle[9];
+    int updatedPuzzle[9];
+    int updatedBlank;
+    int updatedDepth;
+    int updatedHeuristic;
+    int updatedEstimatedCost;
+    int updatedAlgorithm;
     int temp;
-    int blank;
 
     // Load puzzle
     for (int i = 0; i < 9; i++)
@@ -102,36 +125,48 @@ state *state::moveBlankDown(int algorithm)
     }
     else if (this->blankIndex == 0)
     {
-        swap(newPuzzle[0], newPuzzle[3]);
-        blank = 3;
+        swap(updatedPuzzle[0], updatedPuzzle[3]);
+        updatedBlank = 3;
     }
     else if (this->blankIndex == 1)
     {
-        swap(newPuzzle[1], newPuzzle[4]);
-        blank = 4;
+        swap(updatedPuzzle[1], updatedPuzzle[4]);
+        updatedBlank = 4;
     }
     else if (this->blankIndex == 2)
     {
-        swap(newPuzzle[2], newPuzzle[5]);
-        blank = 6;
+        swap(updatedPuzzle[2], updatedPuzzle[5]);
+        updatedBlank = 6;
     }
     else if (this->blankIndex == 3)
     {
-        swap(newPuzzle[3], newPuzzle[6]);
-        blank = 6;
+        swap(updatedPuzzle[3], updatedPuzzle[6]);
+        updatedBlank = 6;
     }
     else if (this->blankIndex == 4)
     {
-        swap(newPuzzle[4], newPuzzle[7]);
-        blank = 7;
+        swap(updatedPuzzle[4], updatedPuzzle[7]);
+        updatedBlank = 7;
     }
     else if (this->blankIndex == 5)
     {
-        swap(newPuzzle[5], newPuzzle[8]);
-        blank = 8;
+        swap(updatedPuzzle[5], updatedPuzzle[8]);
+        updatedBlank = 8;
     }
 
-    state *nextState = new state(newPuzzle, blank, 1);
+    if (algorithm == 1) {
+        updatedHeuristic = 0;
+    }
+    else if (algorithm == 2) {
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+    }
+    else if (algorithm == 3) {
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+    }
+
+    updatedAlgorithm = algorithm;
+
+    state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
@@ -139,9 +174,13 @@ state *state::moveBlankDown(int algorithm)
 state *state::moveBlankLeft(int algorithm)
 {
 
-    int newPuzzle[9];
+    int updatedPuzzle[9];
+    int updatedBlank;
+    int updatedDepth;
+    int updatedHeuristic;
+    int updatedEstimatedCost;
+    int updatedAlgorithm;
     int temp;
-    int blank;
 
     // Load puzzle
     for (int i = 0; i < 9; i++)
@@ -155,36 +194,48 @@ state *state::moveBlankLeft(int algorithm)
     }
     else if (this->blankIndex == 1)
     {
-        swap(newPuzzle[1], newPuzzle[0]);
-        blank = 0;
+        swap(updatedPuzzle[1], updatedPuzzle[0]);
+        updatedBlank = 0;
     }
     else if (this->blankIndex == 2)
     {
-        swap(newPuzzle[2], newPuzzle[1]);
-        blank = 1;
+        swap(updatedPuzzle[2], updatedPuzzle[1]);
+        updatedBlank = 1;
     }
     else if (this->blankIndex == 4)
     {
-        swap(newPuzzle[4], newPuzzle[3]);
-        blank = 3;
+        swap(updatedPuzzle[4], updatedPuzzle[3]);
+        updatedBlank = 3;
     }
     else if (this->blankIndex == 5)
     {
-        swap(newPuzzle[5], newPuzzle[4]);
-        blank = 4;
+        swap(updatedPuzzle[5], updatedPuzzle[4]);
+        updatedBlank = 4;
     }
     else if (this->blankIndex == 7)
     {
-        swap(newPuzzle[7], newPuzzle[6]);
-        blank = 6;
+        swap(updatedPuzzle[7], updatedPuzzle[6]);
+        updatedBlank = 6;
     }
     else if (this->blankIndex == 8)
     {
-        swap(newPuzzle[8], newPuzzle[7]);
-        blank = 7;
+        swap(updatedPuzzle[8], updatedPuzzle[7]);
+        updatedBlank = 7;
     }
 
-    state *nextState = new state(newPuzzle, blank, 1);
+    if (algorithm == 1) {
+        updatedHeuristic = 0;
+    }
+    else if (algorithm == 2) {
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+    }
+    else if (algorithm == 3) {
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+    }
+
+    updatedAlgorithm = algorithm;
+
+    state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
@@ -192,14 +243,18 @@ state *state::moveBlankLeft(int algorithm)
 state *state::moveBlankRight(int algorithm)
 {
 
-    int newPuzzle[9];
+    int updatedPuzzle[9];
+    int updatedBlank;
+    int updatedDepth;
+    int updatedHeuristic;
+    int updatedEstimatedCost;
+    int updatedAlgorithm;
     int temp;
-    int blank;
 
     // Load puzzle
     for (int i = 0; i < 9; i++)
     {
-        newPuzzle[i] = this->puzzle[i];
+        updatedPuzzle[i] = this->puzzle[i];
     }
 
     if (this->blankIndex == 2 || this->blankIndex == 5 || (this->blankIndex == 8))
@@ -208,36 +263,50 @@ state *state::moveBlankRight(int algorithm)
     }
     else if (this->blankIndex == 0)
     {
-        swap(newPuzzle[0], newPuzzle[1]);
-        blank = 1;
+        swap(updatedPuzzle[0], updatedPuzzle[1]);
+        updatedBlank = 1;
     }
     else if (this->blankIndex == 1)
     {
-        swap(newPuzzle[1], newPuzzle[2]);
-        blank = 2;
+        swap(updatedPuzzle[1], updatedPuzzle[2]);
+        updatedBlank = 2;
     }
     else if (this->blankIndex == 3)
     {
-        swap(newPuzzle[3], newPuzzle[4]);
-        blank = 4;
+        swap(updatedPuzzle[3], updatedPuzzle[4]);
+        updatedBlank = 4;
     }
     else if (this->blankIndex == 4)
     {
-        swap(newPuzzle[4], newPuzzle[5]);
-        blank = 5;
+        swap(updatedPuzzle[4], updatedPuzzle[5]);
+        updatedBlank = 5;
     }
     else if (this->blankIndex == 6)
     {
-        swap(newPuzzle[6], newPuzzle[7]);
-        blank = 7;
+        swap(updatedPuzzle[6], updatedPuzzle[7]);
+        updatedBlank = 7;
     }
     else if (this->blankIndex == 7)
     {
-        swap(newPuzzle[7], newPuzzle[8]);
-        blank = 8;
+        swap(updatedPuzzle[7], updatedPuzzle[8]);
+        updatedBlank = 8;
     }
 
-    state *nextState = new state(newPuzzle, blank, 1);
+
+    if (algorithm == 1) {
+        updatedHeuristic = 0;
+    }
+    else if (algorithm == 2) {
+        updatedHeuristic = misplacedTileHeuristic(updatedPuzzle);
+    }
+    else if (algorithm == 3) {
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+    }
+
+    updatedAlgorithm = algorithm;
+
+
+    state *nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
@@ -273,6 +342,8 @@ void uniformCostSearch(state *puzzle)
     // Uniform cost search is option 1 and we need this variable to move the puzzle!
     int algorithm = 1;
 
+    vector<int*> storage;
+
     queue.push(puzzle);
 
     while (queue.size() != 0)
@@ -280,13 +351,40 @@ void uniformCostSearch(state *puzzle)
         // Exploring the least costly node and removing it from the priority queue!
         exploringNode = queue.top();
         queue.pop();
+        int count = 0;
         cout << "queue entered" << endl;
 
+/*
+        for (int i = 0; i < storage.size(); i++) {
+
+            int test1[storage.size()];
+            for (int j = 0; j < storage.size(); j++) {
+                int 
+                test1[i] = storage.at(i);
+            }
+
+            int test2[storage.size()];
+            for (int j = 0; j < 9; j++) {
+                int temp = this->puzzle[i];
+                test2[i] = temp;
+            }
+            
+            for (int k = 0; k < 9; k++) {
+                if (test1[i] == test2[i]) {
+                    count++;
+                    if (count == 9) {
+                        queue.pop();
+                    }
+                }
+            }
+        }
+*/
         // Checking for goal state!
         for (int i = 0; i < 9; i++)
         {
 
-            if (exploringNode->puzzle[i] != goal[i]) {
+            if (exploringNode->puzzle[i] != goal[i])
+            {
                 break;
             }
 
@@ -310,12 +408,17 @@ void uniformCostSearch(state *puzzle)
         cout << "State: " << statesViewed << endl;
         statesViewed++;
         exploringNode->printPuzzle();
+        storage.push_back(exploringNode->puzzle);
 
+
+    
         /*
                 0 1 2
                 3 4 5
                 6 7 8
                             */
+
+                          
         if (exploringNode->blankIndex == 0)
         {
             cout << "pushing" << endl;
@@ -372,5 +475,6 @@ void uniformCostSearch(state *puzzle)
         {
             cout << "Blank index error!" << endl;
         }
+        
     }
 }

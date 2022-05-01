@@ -41,7 +41,7 @@ int main()
     // checkChoice(algorithm);
 
     // Creates the state object called puzzle that will solve the problem!
-    state *puzzle = new state(userPuzzle, blankIndex, algorithm);
+    state *puzzle = new state(userPuzzle, blankIndex, algorithm, 0, 0, 0);
 
     // If choice is 1 we will use Uniform Cost Search!
     if (algorithm == 1)
