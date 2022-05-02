@@ -62,7 +62,7 @@ int main()
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
     else if (algorithm == 3)
     {
-        // puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
+        uniformCostSearch(puzzle, algorithm);
     }
 
     return 0;

@@ -30,6 +30,58 @@ int misplacedTileHeuristic(int puzzle[9])
     return updatedHeuristic;
 }
 
+int euclideanDistanceHeuristic(int puzzle[9])
+{
+    int updatedHeuristic = 0;
+    int counter = 0;
+
+    int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
+    int oneDistance[9] = {0, 1, 2, 1, 2, 3, 2, 3, 4};
+    int twoDistance[9] = {1, 0, 1, 2, 1, 2, 3, 2, 3};
+    int threeDistance[9] = {2, 1, 0, 3, 2, 1, 4, 3, 2};
+    int fourDistance[9] = {1, 2, 3, 0, 1, 2, 1, 2, 3};
+    int fiveDistance[9] = {2, 1, 2, 1, 0, 1, 2, 1, 2};
+    int sixDistance[9] = {3, 2, 1, 2, 1, 0, 3, 2, 1};
+    int sevenDistance[9] = {2, 3, 4, 1, 2, 3, 0, 1, 2};
+    int eightDistance[9] = {3, 2, 3, 2, 1, 2, 1, 0, 1};
+    int zeroDistance[9] = {4, 3, 2, 3, 2, 1, 2, 1, 0};
+
+    for (int i = 0; i < 9; i++) {
+
+        if (puzzle[i] == 0) {
+            counter += zeroDistance[i];
+        }
+        else if (puzzle[i] == 1) {
+            counter += oneDistance[i];
+        }
+        else if (puzzle[i] == 2) {
+            counter += twoDistance[i];
+        }
+        else if (puzzle[i] == 3) {
+            counter += threeDistance[i];
+        }
+        else if (puzzle[i] == 4) {
+            counter += fourDistance[i];
+        }
+        else if (puzzle[i] == 5) {
+            counter += fiveDistance[i];
+        }
+        else if (puzzle[i] == 6) {
+            counter += sixDistance[i];
+        }
+        else if (puzzle[i] == 7) {
+            counter += sevenDistance[i];
+        }
+        else if (puzzle[i] == 8) {
+            counter += eightDistance[i];
+        }
+    }
+
+    updatedHeuristic = counter;
+
+    return updatedHeuristic;
+}
+
 
 /*
 void checkChoice(int choice) {

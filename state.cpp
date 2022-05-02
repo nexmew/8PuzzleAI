@@ -64,7 +64,7 @@ state *state::moveBlankUp(int algorithm)
     }
     else if (algorithm == 3)
     {
-        // updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
     }
 
     updatedAlgorithm = algorithm;
@@ -118,7 +118,7 @@ state *state::moveBlankDown(int algorithm)
     }
     else if (algorithm == 3)
     {
-        // updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
     }
 
     updatedAlgorithm = algorithm;
@@ -177,7 +177,7 @@ state *state::moveBlankLeft(int algorithm)
     }
     else if (algorithm == 3)
     {
-        // updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
     }
 
     updatedAlgorithm = algorithm;
@@ -236,7 +236,7 @@ state *state::moveBlankRight(int algorithm)
     }
     else if (algorithm == 3)
     {
-        // updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
+        updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
     }
 
     updatedAlgorithm = algorithm;
@@ -249,19 +249,7 @@ state *state::moveBlankRight(int algorithm)
     return nextState;
 }
 
-/*
-int misplacedTileHeuristic(int puzzle[9])
-{
 
-    return 1;
-}
-
-int euclideanDistanceHeuristic(int puzzle[9])
-{
-
-    return 5;
-}
-*/
 void state::printPuzzle2()
 {
     
@@ -289,7 +277,7 @@ void uniformCostSearch(state *puzzle, int algorithm)
 
     //auto comparison = [](state* input1, state* input2) { return (input1->estimatedCost >= input2->estimatedCost);};
     //priority_queue<state *, vector<state *>, decltype(comparison)> queue(comparison);
-    priority_queue<state *> queue;
+    priority_queue<state*> queue;
     // Exploring node is the current node we are exploring!
     state *exploringNode;
     // Once solved is true, we will output the array!
