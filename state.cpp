@@ -198,7 +198,6 @@ state *state::moveZeroLeft(int algorithm)
 
     return nextState;
 }
--
 
 state *state::moveZeroRight(int algorithm)
 {
