@@ -250,9 +250,8 @@ state *state::moveBlankRight(int algorithm)
 }
 
 
-void state::printPuzzle2()
+void state::printPuzzle()
 {
-    
         cout << "------------------" << endl;
         cout << "|                |" << endl;
         cout << "| " << puzzle[0] << "     " << puzzle[1] << "     " << puzzle[2] << "  |" << endl;
@@ -262,9 +261,7 @@ void state::printPuzzle2()
         cout << "| " << puzzle[6] << "     " << puzzle[7] << "     " << puzzle[8] << "  |" << endl;
         cout << "|                |" << endl;
         cout << "------------------" << endl;
-        cout << "                  " << endl;
-        //cout << "Estimated Cost: " << estimatedCost << endl;
-        //cout << "Depth: " << depth << endl; 
+        cout << "                  " << endl;    
 }
 
 // Uniform cost search uses a priority queue to explore the states by the least cost
@@ -274,14 +271,10 @@ void uniformCostSearch(state *puzzle, int algorithm)
     // Goal array to check against
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
     // Queue to hold each state of the puzzle
-
     auto comparison = [](state* input1, state* input2) { return (input1->estimatedCost >= input2->estimatedCost);};
     priority_queue<state *, vector<state *>, decltype(comparison)> queue(comparison);
-    //priority_queue<state*> queue;
     // Exploring node is the current node we are exploring!
     state *exploringNode;
-    // Once solved is true, we will output the array!
-    bool solved = false;
     // We initialize states viewed to 1 to begin
     int statesViewed = 1;
     // Uniform cost search is option 1 and we need this variable to move the puzzle!
@@ -308,7 +301,7 @@ void uniformCostSearch(state *puzzle, int algorithm)
             else if (exploringNode->puzzle[i] == goal[i] && (i == 8))
             {
                 cout << "Puzzle solved!" << endl;
-                exploringNode->printPuzzle2();
+                exploringNode->printPuzzle();
                 cout << "States viewed: " << statesViewed << endl;
                 cout << "Estimated cost: " << exploringNode->estimatedCost << endl;
                 cout << "Depth: " << exploringNode->depth << endl;
@@ -317,7 +310,7 @@ void uniformCostSearch(state *puzzle, int algorithm)
         }
 
         statesViewed += 1;
-        exploringNode->printPuzzle2();
+        exploringNode->printPuzzle();
 
         /*
                 0 1 2
