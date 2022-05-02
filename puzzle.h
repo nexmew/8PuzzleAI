@@ -12,6 +12,7 @@ void printStartingMenu()
     cout << "|                                               |" << endl;
     cout << "|    Please enter your puzzle as a string:      |" << endl;
     cout << "|                                               |" << endl;
+    cout << "|         0 1 2 4 5 3 7 8 with spaces!          |" << endl;
     cout << "|                                               |" << endl;
     cout << "-------------------------------------------------" << endl;
 }
