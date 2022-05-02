@@ -2,6 +2,7 @@
 #define PUZZLE_H
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 void printStartingMenu()
@@ -31,21 +32,26 @@ int misplacedTileHeuristic(int puzzle[9])
     return updatedHeuristic;
 }
 
+int euclideanDistance(int x, int y) {
+
+    return sqrt((x * x) + (y * y));
+}
+
 int euclideanDistanceHeuristic(int puzzle[9])
 {
     int updatedHeuristic = 0;
     int counter = 0;
 
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
-    int oneDistance[9] = {0, 1, 2, 1, 2, 3, 2, 3, 4};
-    int twoDistance[9] = {1, 0, 1, 2, 1, 2, 3, 2, 3};
-    int threeDistance[9] = {2, 1, 0, 3, 2, 1, 4, 3, 2};
-    int fourDistance[9] = {1, 2, 3, 0, 1, 2, 1, 2, 3};
-    int fiveDistance[9] = {2, 1, 2, 1, 0, 1, 2, 1, 2};
-    int sixDistance[9] = {3, 2, 1, 2, 1, 0, 3, 2, 1};
-    int sevenDistance[9] = {2, 3, 4, 1, 2, 3, 0, 1, 2};
-    int eightDistance[9] = {3, 2, 3, 2, 1, 2, 1, 0, 1};
-    int zeroDistance[9] = {4, 3, 2, 3, 2, 1, 2, 1, 0};
+    int oneDistance[9] = {euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(2, 0), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1), euclideanDistance(0, 2), euclideanDistance(1, 2), euclideanDistance(2, 2)};
+    int twoDistance[9] = {euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1), euclideanDistance(0, 2), euclideanDistance(1, 2)};
+    int threeDistance[9] = {euclideanDistance(2, 0), euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(2, 1), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(2, 2), euclideanDistance(1, 2), euclideanDistance(0, 2)};
+    int fourDistance[9] = {euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1), euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(2, 0), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1)};
+    int fiveDistance[9] = {euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(1, 1)};
+    int sixDistance[9] = {euclideanDistance(2, 1), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(2, 0), euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(2, 1), euclideanDistance(1, 1), euclideanDistance(0, 1)};
+    int sevenDistance[9] = {euclideanDistance(0, 2), euclideanDistance(1, 2), euclideanDistance(2, 2), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1), euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(2, 0)};
+    int eightDistance[9] = {euclideanDistance(1, 2), euclideanDistance(0, 2), euclideanDistance(1, 2), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(1, 0)};
+    int zeroDistance[9] = {euclideanDistance(2, 2), euclideanDistance(1, 2), euclideanDistance(0, 2), euclideanDistance(2, 1), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(2, 0), euclideanDistance(1, 0), euclideanDistance(0, 0)};
 
     for (int i = 0; i < 9; i++) {
 
