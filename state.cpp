@@ -198,11 +198,10 @@ state *state::moveZeroLeft(int algorithm)
 
     return nextState;
 }
-
+-
 
 state *state::moveZeroRight(int algorithm)
 {
-
     int updatedPuzzle[9];
     int updatedZero = 0;
     int updatedDepth;

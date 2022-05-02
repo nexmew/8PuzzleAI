@@ -41,9 +41,7 @@ int main()
 
     cin >> algorithm;
 
-    // Checks choice and makes sure it is either 1, 2 or 3!
-    // checkChoice(algorithm);
-
+    
     // Creates the state object called puzzle that will solve the problem!
     state *puzzle = new state(userPuzzle, zeroIndex, algorithm, 0, heuristic, 0);
 
