@@ -56,15 +56,13 @@ int main()
     // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
     else if (algorithm == 2)
     {
-        heuristic = misplacedTileHeuristic(puzzle->puzzle);
-        puzzle->heuristic = heuristic;
         uniformCostSearch(puzzle, algorithm);
     }
 
     // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
     else if (algorithm == 3)
     {
-        // puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
+        uniformCostSearch(puzzle, algorithm);
     }
 
     return 0;
