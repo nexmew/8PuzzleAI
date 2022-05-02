@@ -68,7 +68,7 @@ state *state::moveBlankUp(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
-    updatedDepth = this->depth++;
+    updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
@@ -122,7 +122,7 @@ state *state::moveBlankDown(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
-    updatedDepth = this->depth++;
+    updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState;
@@ -181,7 +181,7 @@ state *state::moveBlankLeft(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
-    updatedDepth = this->depth++;
+    updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState;
@@ -240,7 +240,7 @@ state *state::moveBlankRight(int algorithm)
     }
 
     updatedAlgorithm = algorithm;
-    updatedDepth = this->depth++;
+    updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState;
@@ -275,9 +275,9 @@ void uniformCostSearch(state *puzzle, int algorithm)
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
     // Queue to hold each state of the puzzle
 
-    //auto comparison = [](state* input1, state* input2) { return (input1->estimatedCost >= input2->estimatedCost);};
-    //priority_queue<state *, vector<state *>, decltype(comparison)> queue(comparison);
-    priority_queue<state*> queue;
+    auto comparison = [](state* input1, state* input2) { return (input1->estimatedCost >= input2->estimatedCost);};
+    priority_queue<state *, vector<state *>, decltype(comparison)> queue(comparison);
+    //priority_queue<state*> queue;
     // Exploring node is the current node we are exploring!
     state *exploringNode;
     // Once solved is true, we will output the array!

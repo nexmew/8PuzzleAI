@@ -47,9 +47,25 @@ int main()
     // Creates the state object called puzzle that will solve the problem!
     state *puzzle = new state(userPuzzle, blankIndex, algorithm, 0, heuristic, 0);
 
-    
-    uniformCostSearch(puzzle, algorithm);
-    
+    // If choice is 1 we will use Uniform Cost Search!
+    if (algorithm == 1)
+    {
+        uniformCostSearch(puzzle, algorithm);
+    }
+
+    // If choice is 2 we will use A* Search with the Misplaced Tile Heuristic!
+    else if (algorithm == 2)
+    {
+        heuristic = misplacedTileHeuristic(puzzle->puzzle);
+        puzzle->heuristic = heuristic;
+        uniformCostSearch(puzzle, algorithm);
+    }
+
+    // If choice is 3 we will use A* Search with the Euclidean Distance Heuristic!
+    else if (algorithm == 3)
+    {
+        // puzzle->heuristic = euclideanDistanceHeuristic(puzzle->puzzle);
+    }
 
     return 0;
 }
