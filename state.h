@@ -20,9 +20,9 @@ public:
     int puzzle[9];
     int blankIndex;
     int algorithm;
-    int heuristic;
-    int depth;
-    int estimatedCost;
+    int heuristic; // h(n)
+    int depth; // g(n)
+    int estimatedCost; // f(n)
 };
 
 #endif

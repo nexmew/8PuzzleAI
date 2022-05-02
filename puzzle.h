@@ -22,7 +22,7 @@ int misplacedTileHeuristic(int puzzle[9])
 {
     int updatedHeuristic = 0;
 
-    // Counts how many misplaced tiles we have
+    // Counts how many misplaced tiles we have on the current board
     for (int i = 0; i < 9; i++) {
         if ((puzzle[i] != 0) && (puzzle[i] != (i + 1) % 9)) {
             updatedHeuristic++;
@@ -40,8 +40,9 @@ int euclideanDistanceHeuristic(int puzzle[9])
 {
     int updatedHeuristic = 0;
     int counter = 0;
-
     int goal[9] = {1, 2, 3, 4, 5, 6, 7, 8, 0};
+
+    // I calculated the x and y coordinate distances from the goal state for each number, then plugged those values into a euclidean distance formula function
     int oneDistance[9] = {euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(2, 0), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1), euclideanDistance(0, 2), euclideanDistance(1, 2), euclideanDistance(2, 2)};
     int twoDistance[9] = {euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(1, 0), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(1, 1), euclideanDistance(2, 1), euclideanDistance(0, 2), euclideanDistance(1, 2)};
     int threeDistance[9] = {euclideanDistance(2, 0), euclideanDistance(1, 0), euclideanDistance(0, 0), euclideanDistance(2, 1), euclideanDistance(1, 1), euclideanDistance(0, 1), euclideanDistance(2, 2), euclideanDistance(1, 2), euclideanDistance(0, 2)};

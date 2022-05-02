@@ -21,6 +21,7 @@ state::state(int puzzle[9], int blankIndex, int algorithm, int depth, int heuris
     this->estimatedCost = estimatedCost;
 }
 
+
 state *state::moveBlankUp(int algorithm)
 {
 
@@ -35,6 +36,7 @@ state *state::moveBlankUp(int algorithm)
     int column = blankIndex % 3;
     int row = blankIndex / 3;
 
+    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
     if (blankIndex == 3 || blankIndex == 4 || blankIndex == 5)
     {
         updatedBlank = row + column - 1;
@@ -67,6 +69,7 @@ state *state::moveBlankUp(int algorithm)
         updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
     }
 
+    // Swap
     updatedAlgorithm = algorithm;
     updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
@@ -75,6 +78,7 @@ state *state::moveBlankUp(int algorithm)
 
     return nextState;
 }
+
 
 state *state::moveBlankDown(int algorithm)
 {
@@ -89,6 +93,7 @@ state *state::moveBlankDown(int algorithm)
     int column = blankIndex % 3;
     int row = blankIndex / 3;
 
+    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
     if (blankIndex == 0 || blankIndex == 1 || blankIndex == 2)
     {
         updatedBlank = row + column + 3;
@@ -121,6 +126,7 @@ state *state::moveBlankDown(int algorithm)
         updatedHeuristic = euclideanDistanceHeuristic(updatedPuzzle);
     }
 
+    // Swap
     updatedAlgorithm = algorithm;
     updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
@@ -130,6 +136,7 @@ state *state::moveBlankDown(int algorithm)
 
     return nextState;
 }
+
 
 state *state::moveBlankLeft(int algorithm)
 {
@@ -144,6 +151,7 @@ state *state::moveBlankLeft(int algorithm)
     int column = blankIndex % 3;
     int row = blankIndex / 3;
 
+    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
     if (blankIndex == 1 || blankIndex == 2)
     {
         updatedBlank = row + column - 1;
@@ -163,6 +171,7 @@ state *state::moveBlankLeft(int algorithm)
         updatedPuzzle[i] = this->puzzle[i];
     }
 
+    // Swap
     temp = updatedPuzzle[this->blankIndex];
     updatedPuzzle[this->blankIndex] = updatedPuzzle[updatedBlank];
     updatedPuzzle[updatedBlank] = temp;
@@ -190,6 +199,7 @@ state *state::moveBlankLeft(int algorithm)
     return nextState;
 }
 
+
 state *state::moveBlankRight(int algorithm)
 {
 
@@ -203,6 +213,7 @@ state *state::moveBlankRight(int algorithm)
     int column = blankIndex % 3;
     int row = blankIndex / 3;
 
+    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
     if (blankIndex == 0 || blankIndex == 1)
     {
         updatedBlank = row + column + 1;
@@ -222,6 +233,7 @@ state *state::moveBlankRight(int algorithm)
         updatedPuzzle[i] = this->puzzle[i];
     }
 
+    // Swap
     temp = updatedPuzzle[this->blankIndex];
     updatedPuzzle[this->blankIndex] = updatedPuzzle[updatedBlank];
     updatedPuzzle[updatedBlank] = temp;
@@ -317,6 +329,8 @@ void uniformCostSearch(state *puzzle, int algorithm)
                 3 4 5                 <--- Indices
                 6 7 8
                             */
+
+        // We want to push every possible move given the index of 0!                   
 
         if (exploringNode->blankIndex == 0)
         {
