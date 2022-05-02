@@ -36,7 +36,7 @@ state *state::moveZeroUp(int algorithm)
     int column = zeroIndex % 3;
     int row = zeroIndex / 3;
 
-    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    // I calculated where the new zero should be based on the row and column index of 0 (the zero)
     if (zeroIndex == 3 || zeroIndex == 4 || zeroIndex == 5)
     {
         updatedZero = row + column - 1;
@@ -93,7 +93,7 @@ state *state::moveZeroDown(int algorithm)
     int column = zeroIndex % 3;
     int row = zeroIndex / 3;
 
-    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    // I calculated where the new zero should be based on the row and column index of 0 (the zero)
     if (zeroIndex == 0 || zeroIndex == 1 || zeroIndex == 2)
     {
         updatedZero = row + column + 3;
@@ -151,7 +151,7 @@ state *state::moveZeroLeft(int algorithm)
     int column = zeroIndex % 3;
     int row = zeroIndex / 3;
 
-    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    // I calculated where the new zero should be based on the row and column index of 0 (the zero)
     if (zeroIndex == 1 || zeroIndex == 2)
     {
         updatedZero = row + column - 1;
@@ -211,7 +211,7 @@ state *state::moveZeroRight(int algorithm)
     int column = zeroIndex % 3;
     int row = zeroIndex / 3;
 
-    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    // I calculated where the new zero should be based on the row and column index of 0 (the zero)
     if (zeroIndex == 0 || zeroIndex == 1)
     {
         updatedZero = row + column + 1;
