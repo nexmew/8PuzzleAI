@@ -6,7 +6,7 @@
 using namespace std;
 
 
-state::state(int puzzle[9], int blankIndex, int algorithm, int depth, int heuristic, int estimatedCost)
+state::state(int puzzle[9], int zeroIndex, int algorithm, int depth, int heuristic, int estimatedCost)
 {
 
     for (int i = 0; i < 9; i++)
@@ -14,7 +14,7 @@ state::state(int puzzle[9], int blankIndex, int algorithm, int depth, int heuris
         this->puzzle[i] = puzzle[i];
     }
 
-    this->blankIndex = blankIndex;
+    this->zeroIndex = zeroIndex;
     this->algorithm = algorithm;
     this->depth = depth;
     this->heuristic = heuristic;
@@ -22,28 +22,28 @@ state::state(int puzzle[9], int blankIndex, int algorithm, int depth, int heuris
 }
 
 
-state *state::moveBlankUp(int algorithm)
+state *state::moveZeroUp(int algorithm)
 {
 
     state *nextState;
 
     int updatedPuzzle[9];
     int updatedDepth;
-    int updatedBlank = 0;
+    int updatedZero = 0;
     int updatedHeuristic;
     int updatedEstimatedCost;
     int updatedAlgorithm = algorithm;
-    int column = blankIndex % 3;
-    int row = blankIndex / 3;
+    int column = zeroIndex % 3;
+    int row = zeroIndex / 3;
 
-    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
-    if (blankIndex == 3 || blankIndex == 4 || blankIndex == 5)
+    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    if (zeroIndex == 3 || zeroIndex == 4 || zeroIndex == 5)
     {
-        updatedBlank = row + column - 1;
+        updatedZero = row + column - 1;
     }
-    else if (blankIndex == 6 || blankIndex == 7 || blankIndex == 8)
+    else if (zeroIndex == 6 || zeroIndex == 7 || zeroIndex == 8)
     {
-        updatedBlank = row + column + 1;
+        updatedZero = row + column + 1;
     }
 
     // Load puzzle
@@ -52,9 +52,9 @@ state *state::moveBlankUp(int algorithm)
         updatedPuzzle[i] = this->puzzle[i];
     }
 
-    int temp = updatedPuzzle[this->blankIndex];
-    updatedPuzzle[this->blankIndex] = updatedPuzzle[updatedBlank];
-    updatedPuzzle[updatedBlank] = temp;
+    int temp = updatedPuzzle[this->zeroIndex];
+    updatedPuzzle[this->zeroIndex] = updatedPuzzle[updatedZero];
+    updatedPuzzle[updatedZero] = temp;
 
     if (algorithm == 1)
     {
@@ -74,33 +74,33 @@ state *state::moveBlankUp(int algorithm)
     updatedDepth = this->depth + 1;
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
-    nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
+    nextState = new state(updatedPuzzle, updatedZero, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
 
 
-state *state::moveBlankDown(int algorithm)
+state *state::moveZeroDown(int algorithm)
 {
 
     int updatedPuzzle[9];
-    int updatedBlank = 0;
+    int updatedZero = 0;
     int updatedDepth;
     int updatedHeuristic;
     int updatedEstimatedCost;
     int updatedAlgorithm = algorithm;
     int temp;
-    int column = blankIndex % 3;
-    int row = blankIndex / 3;
+    int column = zeroIndex % 3;
+    int row = zeroIndex / 3;
 
-    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
-    if (blankIndex == 0 || blankIndex == 1 || blankIndex == 2)
+    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    if (zeroIndex == 0 || zeroIndex == 1 || zeroIndex == 2)
     {
-        updatedBlank = row + column + 3;
+        updatedZero = row + column + 3;
     }
-    else if (blankIndex == 3 || blankIndex == 4 || blankIndex == 5)
+    else if (zeroIndex == 3 || zeroIndex == 4 || zeroIndex == 5)
     {
-        updatedBlank = row + column + 5;
+        updatedZero = row + column + 5;
     }
 
     // Load puzzle
@@ -109,9 +109,9 @@ state *state::moveBlankDown(int algorithm)
         updatedPuzzle[i] = this->puzzle[i];
     }
 
-    temp = updatedPuzzle[this->blankIndex];
-    updatedPuzzle[this->blankIndex] = updatedPuzzle[updatedBlank];
-    updatedPuzzle[updatedBlank] = temp;
+    temp = updatedPuzzle[this->zeroIndex];
+    updatedPuzzle[this->zeroIndex] = updatedPuzzle[updatedZero];
+    updatedPuzzle[updatedZero] = temp;
 
     if (algorithm == 1)
     {
@@ -132,37 +132,37 @@ state *state::moveBlankDown(int algorithm)
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState;
-    nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
+    nextState = new state(updatedPuzzle, updatedZero, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
 
 
-state *state::moveBlankLeft(int algorithm)
+state *state::moveZeroLeft(int algorithm)
 {
 
     int updatedPuzzle[9];
-    int updatedBlank = 0;
+    int updatedZero = 0;
     int updatedDepth;
     int updatedHeuristic;
     int updatedEstimatedCost;
     int updatedAlgorithm = algorithm;
     int temp;
-    int column = blankIndex % 3;
-    int row = blankIndex / 3;
+    int column = zeroIndex % 3;
+    int row = zeroIndex / 3;
 
-    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
-    if (blankIndex == 1 || blankIndex == 2)
+    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    if (zeroIndex == 1 || zeroIndex == 2)
     {
-        updatedBlank = row + column - 1;
+        updatedZero = row + column - 1;
     }
-    else if (blankIndex == 4 || blankIndex == 5)
+    else if (zeroIndex == 4 || zeroIndex == 5)
     {
-        updatedBlank = row + column + 1;
+        updatedZero = row + column + 1;
     }
-    else if (blankIndex == 7 || blankIndex == 8)
+    else if (zeroIndex == 7 || zeroIndex == 8)
     {
-        updatedBlank = row + column + 3;
+        updatedZero = row + column + 3;
     }
 
     // Load puzzle
@@ -172,9 +172,9 @@ state *state::moveBlankLeft(int algorithm)
     }
 
     // Swap
-    temp = updatedPuzzle[this->blankIndex];
-    updatedPuzzle[this->blankIndex] = updatedPuzzle[updatedBlank];
-    updatedPuzzle[updatedBlank] = temp;
+    temp = updatedPuzzle[this->zeroIndex];
+    updatedPuzzle[this->zeroIndex] = updatedPuzzle[updatedZero];
+    updatedPuzzle[updatedZero] = temp;
 
     if (algorithm == 1)
     {
@@ -194,37 +194,37 @@ state *state::moveBlankLeft(int algorithm)
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState;
-    nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
+    nextState = new state(updatedPuzzle, updatedZero, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
 
 
-state *state::moveBlankRight(int algorithm)
+state *state::moveZeroRight(int algorithm)
 {
 
     int updatedPuzzle[9];
-    int updatedBlank = 0;
+    int updatedZero = 0;
     int updatedDepth;
     int updatedHeuristic;
     int updatedEstimatedCost;
     int updatedAlgorithm = algorithm;
     int temp;
-    int column = blankIndex % 3;
-    int row = blankIndex / 3;
+    int column = zeroIndex % 3;
+    int row = zeroIndex / 3;
 
-    // I calulated where the new blank should be based on the row and column index of 0 (the blank)
-    if (blankIndex == 0 || blankIndex == 1)
+    // I calulated where the new zero should be based on the row and column index of 0 (the zero)
+    if (zeroIndex == 0 || zeroIndex == 1)
     {
-        updatedBlank = row + column + 1;
+        updatedZero = row + column + 1;
     }
-    else if (blankIndex == 3 || blankIndex == 4)
+    else if (zeroIndex == 3 || zeroIndex == 4)
     {
-        updatedBlank = row + column + 3;
+        updatedZero = row + column + 3;
     }
-    else if (blankIndex == 6 || blankIndex == 7)
+    else if (zeroIndex == 6 || zeroIndex == 7)
     {
-        updatedBlank = row + column + 5;
+        updatedZero = row + column + 5;
     }
 
     // Load puzzle
@@ -234,9 +234,9 @@ state *state::moveBlankRight(int algorithm)
     }
 
     // Swap
-    temp = updatedPuzzle[this->blankIndex];
-    updatedPuzzle[this->blankIndex] = updatedPuzzle[updatedBlank];
-    updatedPuzzle[updatedBlank] = temp;
+    temp = updatedPuzzle[this->zeroIndex];
+    updatedPuzzle[this->zeroIndex] = updatedPuzzle[updatedZero];
+    updatedPuzzle[updatedZero] = temp;
 
     if (algorithm == 1)
     {
@@ -256,7 +256,7 @@ state *state::moveBlankRight(int algorithm)
     updatedEstimatedCost = updatedHeuristic + updatedDepth;
 
     state *nextState;
-    nextState = new state(updatedPuzzle, updatedBlank, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
+    nextState = new state(updatedPuzzle, updatedZero, updatedAlgorithm, updatedDepth, updatedHeuristic, updatedEstimatedCost);
 
     return nextState;
 }
@@ -332,60 +332,60 @@ void uniformCostSearch(state *puzzle, int algorithm)
 
         // We want to push every possible move given the index of 0!                   
 
-        if (exploringNode->blankIndex == 0)
+        if (exploringNode->zeroIndex == 0)
         {
-            queue.push(exploringNode->moveBlankDown(algorithm));
-            queue.push(exploringNode->moveBlankRight(algorithm));
+            queue.push(exploringNode->moveZeroDown(algorithm));
+            queue.push(exploringNode->moveZeroRight(algorithm));
         }
-        else if (exploringNode->blankIndex == 1)
+        else if (exploringNode->zeroIndex == 1)
         {
-            queue.push(exploringNode->moveBlankDown(algorithm));
-            queue.push(exploringNode->moveBlankLeft(algorithm));
-            queue.push(exploringNode->moveBlankRight(algorithm));
+            queue.push(exploringNode->moveZeroDown(algorithm));
+            queue.push(exploringNode->moveZeroLeft(algorithm));
+            queue.push(exploringNode->moveZeroRight(algorithm));
         }
-        else if (exploringNode->blankIndex == 2)
+        else if (exploringNode->zeroIndex == 2)
         {
-            queue.push(exploringNode->moveBlankDown(algorithm));
-            queue.push(exploringNode->moveBlankLeft(algorithm));
+            queue.push(exploringNode->moveZeroDown(algorithm));
+            queue.push(exploringNode->moveZeroLeft(algorithm));
         }
-        else if (exploringNode->blankIndex == 3)
+        else if (exploringNode->zeroIndex == 3)
         {
-            queue.push(exploringNode->moveBlankUp(algorithm));
-            queue.push(exploringNode->moveBlankDown(algorithm));
-            queue.push(exploringNode->moveBlankRight(algorithm));
+            queue.push(exploringNode->moveZeroUp(algorithm));
+            queue.push(exploringNode->moveZeroDown(algorithm));
+            queue.push(exploringNode->moveZeroRight(algorithm));
         }
-        else if (exploringNode->blankIndex == 4)
+        else if (exploringNode->zeroIndex == 4)
         {
-            queue.push(exploringNode->moveBlankUp(algorithm));
-            queue.push(exploringNode->moveBlankDown(algorithm));
-            queue.push(exploringNode->moveBlankLeft(algorithm));
-            queue.push(exploringNode->moveBlankRight(algorithm));
+            queue.push(exploringNode->moveZeroUp(algorithm));
+            queue.push(exploringNode->moveZeroDown(algorithm));
+            queue.push(exploringNode->moveZeroLeft(algorithm));
+            queue.push(exploringNode->moveZeroRight(algorithm));
         }
-        else if (exploringNode->blankIndex == 5)
+        else if (exploringNode->zeroIndex == 5)
         {
-            queue.push(exploringNode->moveBlankUp(algorithm));
-            queue.push(exploringNode->moveBlankDown(algorithm));
-            queue.push(exploringNode->moveBlankLeft(algorithm));
+            queue.push(exploringNode->moveZeroUp(algorithm));
+            queue.push(exploringNode->moveZeroDown(algorithm));
+            queue.push(exploringNode->moveZeroLeft(algorithm));
         }
-        else if (exploringNode->blankIndex == 6)
+        else if (exploringNode->zeroIndex == 6)
         {
-            queue.push(exploringNode->moveBlankUp(algorithm));
-            queue.push(exploringNode->moveBlankRight(algorithm));
+            queue.push(exploringNode->moveZeroUp(algorithm));
+            queue.push(exploringNode->moveZeroRight(algorithm));
         }
-        else if (exploringNode->blankIndex == 7)
+        else if (exploringNode->zeroIndex == 7)
         {
-            queue.push(exploringNode->moveBlankUp(algorithm));
-            queue.push(exploringNode->moveBlankLeft(algorithm));
-            queue.push(exploringNode->moveBlankRight(algorithm));
+            queue.push(exploringNode->moveZeroUp(algorithm));
+            queue.push(exploringNode->moveZeroLeft(algorithm));
+            queue.push(exploringNode->moveZeroRight(algorithm));
         }
-        else if (exploringNode->blankIndex == 8)
+        else if (exploringNode->zeroIndex == 8)
         {
-            queue.push(exploringNode->moveBlankUp(algorithm));
-            queue.push(exploringNode->moveBlankLeft(algorithm));
+            queue.push(exploringNode->moveZeroUp(algorithm));
+            queue.push(exploringNode->moveZeroLeft(algorithm));
         }
         else
         {
-            cout << "Blank index error!" << endl;
+            cout << "zero index error!" << endl;
         }
     }
     cout << "error" << endl;

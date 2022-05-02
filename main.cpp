@@ -11,8 +11,8 @@ int main()
 
     // Initializes the array we read from the user to solve!
     int userPuzzle[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-    // Initializes the variable that holds the blank (0) index!
-    int blankIndex = 0;
+    // Initializes the variable that holds the zero's index!
+    int zeroIndex = 0;
     // Initializes a variable choice that determines which algorithm solves the puzzle!
     int algorithm = 0;
 
@@ -30,7 +30,7 @@ int main()
     {
         if (userPuzzle[j] == 0)
         {
-            blankIndex = j;
+            zeroIndex = j;
         }
     }
 
@@ -45,7 +45,7 @@ int main()
     // checkChoice(algorithm);
 
     // Creates the state object called puzzle that will solve the problem!
-    state *puzzle = new state(userPuzzle, blankIndex, algorithm, 0, heuristic, 0);
+    state *puzzle = new state(userPuzzle, zeroIndex, algorithm, 0, heuristic, 0);
 
     // If algorithm is 1 we will use Uniform Cost Search!
     if (algorithm == 1)
