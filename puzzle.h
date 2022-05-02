@@ -28,7 +28,6 @@ int misplacedTileHeuristic(int puzzle[9])
             updatedHeuristic++;
         }
     }
-    cout << "Misplaced tiles: " << updatedHeuristic << endl;
     return updatedHeuristic;
 }
 
