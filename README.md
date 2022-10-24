@@ -1,4 +1,4 @@
-# 8PuzzleAI
+# 8 Puzzle AI Using A* Hueristic Search
 ## About The Project
 
 
