@@ -12,8 +12,10 @@ A* Search with Misplaced Tile Hueristic
 A* Search with Euclidean Distance Hueristic
 ```
 
+The idea behind an 8 puzzle game is to unscramble any given board into the goal state:
 
-Coded in C++, 
+
+To enter a
 
 
 ## Design
