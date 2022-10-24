@@ -12,6 +12,7 @@ A* Search with Misplaced Tile Hueristic
 A* Search with Euclidean Distance Hueristic
 ```
 
+
 The idea behind an 8 puzzle game is to unscramble any given board into the goal state:
 
 
@@ -21,4 +22,12 @@ To enter a
 ## Design
 
 
-To solve a user entered 8 puzzle, I utilized object oriented design to create a `state` class with 4 operators which manipulates the board!
+To solve a user entered 8 puzzle, I utilized object oriented design to create a `state` class with 4 operators which manipulate the board! The four operators are:
+```
+moveZeroUp
+moveZeroDown
+moveZeroLeft
+moveZeroRight
+````
+
+
