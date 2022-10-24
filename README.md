@@ -8,8 +8,8 @@ This project solves the 8 puzzle game in the optimal number of moves using A* hu
 The user has the ability to enter a puzzle and select from different hueristic algorithms to solve it. There are 3 available algorithms: 
 ```
 Uniform Cost Search
-A* Search w/ Misplaced Tile Hueristic
-A* Search w/ Euclidean Distance Hueristic
+A* Search with Misplaced Tile Hueristic
+A* Search with Euclidean Distance Hueristic
 ```
 
 
