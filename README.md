@@ -5,7 +5,12 @@
 This project solves the 8 puzzle game in the optimal number of moves using A* hueristic search!
 
 
-The user has the ability to enter a puzzle and select from different hueristic algorithms to solve it.
+The user has the ability to enter a puzzle and select from different hueristic algorithms to solve it. There are 3 available algorithms: 
+```
+Uniform Cost Search
+A* Search w/ Misplaced Tile Hueristic
+A* Search w/ Euclidean Distance Hueristic
+```
 
 
 Coded in C++, 
@@ -14,4 +19,4 @@ Coded in C++,
 ## Design
 
 
-To solve a user entered 8 puzzle, I utilized object oriented design to create a 'state' class with 4 operators which manipulates the board!
+To solve a user entered 8 puzzle, I utilized object oriented design to create a `state` class with 4 operators which manipulates the board!
