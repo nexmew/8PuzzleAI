@@ -36,6 +36,9 @@ moveZeroRight
 ````
 
 
+I used these operators to reach the goal state by determining the possible moves for each zero index:
+
+
 ![Screenshot (780)](https://user-images.githubusercontent.com/43623351/198116677-a34c2834-4a22-4cde-9988-23be50a5f9a8.png)
 
 
