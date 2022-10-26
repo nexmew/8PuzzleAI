@@ -16,6 +16,9 @@ A* Search with Euclidean Distance Hueristic
 The idea behind an 8 puzzle game is to unscramble any given board into the goal state:
 
 
+![scrambled and goal state](https://user-images.githubusercontent.com/43623351/198106094-1239b2c5-1471-4a5a-9f1a-0ea3f5ee9f44.png)
+
+
 Menu:
 
 
