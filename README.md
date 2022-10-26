@@ -19,7 +19,7 @@ The idea behind an 8 puzzle game is to unscramble any given board into the goal 
 To enter a
 
 
-![MENUPIC!](pictures\Screenshot (771).png)
+![MENUPIC!](pictures/Screenshot (771).png)
 
 
 ## Design
