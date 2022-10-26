@@ -19,6 +19,9 @@ The idea behind an 8 puzzle game is to unscramble any given board into the goal 
 To enter a
 
 
+![MENUPIC](C:\Users\scottuzamaki\Desktop\UCR\CS170\8 puzzle 4\8PuzzleAI\pictures\Screenshot (771).png)
+
+
 ## Design
 
 
