@@ -2,7 +2,7 @@
 ## About The Project
 
 
-This project solves the 8 puzzle game in the **optimal number** of moves using A* hueristic search!
+This project solves the 8 puzzle game in the ***optimal number*** of moves using A* hueristic search!
 
 
 The user has the ability to enter a puzzle and select from different hueristic algorithms to solve it. There are 3 available algorithms: 
