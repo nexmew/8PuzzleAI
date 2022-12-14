@@ -43,7 +43,8 @@ I used these operators to reach the goal state by determining the possible moves
 
 
 ## Uniform Cost Search Algorithm
-The first algorithm choice solves the 8 puzzle using no hueristic. In other words, the puzzle is solved by searching uniformly through the possible moves until a solutuion path is found.
+The first algorithm choice solves the 8 puzzle using no hueristic. In other words, the puzzle is solved by searching uniformly through the possible moves until a solutuion path is found. _
+Due to having no hueristic, this algorithm chooses to move the 0 in numberical order (i.e. 1 before 2 before 3)
 
 
 ## A* Search with Misplaced Tile Hueristic
