@@ -50,8 +50,10 @@ Due to having no hueristic, this algorithm chooses to find the index based on nu
 
 
 ## A* Search with Misplaced Tile Hueristic
+The second algorithm choice solves
 
 
 ## A* Search with Euclidean Distance Hueristic
+The third and last algorithm choice solves the 8 puzzle using a hueristic which updates based on changing euclidean distances.
 
 
