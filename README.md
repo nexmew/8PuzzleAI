@@ -43,6 +43,7 @@ I used these operators to reach the goal state by determining the possible moves
 
 
 ## Uniform Cost Search Algorithm
+The first algorithm choice solves the 8 puzzle using no hueristic. In other words, the puzzle is solved by searching uniformly through the possible moves until a solutuion path is found.
 
 
 ## A* Search with Misplaced Tile Hueristic
