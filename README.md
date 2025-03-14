@@ -61,3 +61,7 @@ The third and last algorithm choice solves the 8 puzzle using a hueristic which 
 
 
 
+
+
+
+  
