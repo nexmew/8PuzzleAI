@@ -56,6 +56,8 @@ The second algorithm choice solves the puzzle with
 ## A* Search with Euclidean Distance Hueristic
 The third and last algorithm choice solves the 8 puzzle using a hueristic which updates based on changing euclidean distances.
 
+We calculate
+
 
 
 
