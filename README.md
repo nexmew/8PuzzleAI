@@ -50,7 +50,7 @@ Due to having no hueristic, this algorithm chooses to find the index based on nu
 
 
 ## A* Search with Misplaced Tile Hueristic
-The second algorithm choice solves the puzzle with whats known as
+The second algorithm choice solves the puzzle with whats known as Misplaced Tile Hueristic
 
 
 ## A* Search with Euclidean Distance Hueristic
