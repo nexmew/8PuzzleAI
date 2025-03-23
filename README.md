@@ -10,6 +10,7 @@ The user has the ability to enter a puzzle and select from different hueristic a
 Uniform Cost Search
 A* Search with Misplaced Tile Hueristic
 A* Search with Euclidean Distance Hueristic
+
 ```
 
 
