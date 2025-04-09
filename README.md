@@ -59,6 +59,8 @@ The third and last algorithm choice solves the 8 puzzle using a hueristic which 
 
 We calculate this distance by updating our
 
+Next
+
 ..
 
 
