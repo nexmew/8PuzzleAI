@@ -47,7 +47,7 @@ I used these operators to reach the goal state by determining the possible moves
 The first algorithm choice solves the 8 puzzle using no hueristic. In other words, the puzzle is solved by searching uniformly through the possible moves until a solutuion path is found. 
 
 
-Due to having no hueristic, this algorithm chooses to find the index based on numberical order (i.e. 1 before 2 before 3.) Once this index is discovered, the 0 is moved in this order: up, down, left, and right.
+Due to having no hueristic, this algorithm chooses to find the index based on numberical order (i.e. 1 before 2 before 3 etc) Once this index is discovered, the 0 is moved in this order: up, down, left, and right.
 
 
 ## A* Search with Misplaced Tile Hueristic
