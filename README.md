@@ -61,7 +61,7 @@ We calculate this distance by updating our
 
 Next we use
 
-..
+...
 
 
 
